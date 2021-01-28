@@ -38,6 +38,9 @@ body {
 }
 svg {
   position: absolute;
+  path {
+    transition: all 0.2s ease-in-out;
+  }
 }
 
 .top, .bottom {
@@ -47,15 +50,17 @@ svg {
   min-height: fit-content;
   text-align: center;
   color: white;
+  background-color: #f3f3f3;
 }
 .top {
   margin-bottom: 3rem;
   & > *:not(:last-child) {
-    position: relative;
     margin-right: 2rem;
   }
 
   &__child {
+    cursor: pointer;
+    position: relative;
     background-color: green;
   }
 }

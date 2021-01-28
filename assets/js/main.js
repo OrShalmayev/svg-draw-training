@@ -1,27 +1,29 @@
-window.addEventListener('load', function(){
+window.addEventListener('load', function(){//only after css loaded
   console.log('DOMContentLoaded')
 
-  var divA       = document.querySelector(".top__child--1");
-  var divB       = document.querySelector(".bottom");
-  //var arrowLeft  = document.querySelector("#arrowLeft");
-  var arrowRight = document.querySelector("#arrowRight");
+  const staticBox       = document.querySelector(".bottom");
+  const dynamic_box_default_class = '.top__child--1';
+  //const arrowLeft  = document.querySelector("#arrowLeft");
+  const arrowRight = document.querySelector("#arrowRight");
 
-  function drawConnector() {
+  function drawConnector(box = dynamic_box_default_class) {
+    let dynamicBox       = $(box)[0];
+
     // let posnALeft = {
     //   x: divA.getBoundingClientRect().left - 8,
     //   y: divA.getBoundingClientRect().top  + divA.getBoundingClientRect().height / 2
     // };
-    let posnARight = {
-      x: divA.getBoundingClientRect().left + divA.getBoundingClientRect().width + 8,
-      y: divA.getBoundingClientRect().top  + divA.getBoundingClientRect().height / 2
+    let arrowSymbol = {//where the is at
+      x: dynamicBox.getBoundingClientRect().left + dynamicBox.getBoundingClientRect().width + 8,
+      y: dynamicBox.getBoundingClientRect().top  + dynamicBox.getBoundingClientRect().height
     };
     // let posnBLeft = {
-    //   x: divB.getBoundingClientRect().left - 8,
-    //   y: divB.getBoundingClientRect().top  + divB.getBoundingClientRect().height  / 2
+    //   x: staticBox.getBoundingClientRect().left - 8,
+    //   y: staticBox.getBoundingClientRect().top  + staticBox.getBoundingClientRect().height  / 2
     // };
-    let posnBRight = {
-      x: divB.getBoundingClientRect().left + divB.getBoundingClientRect().width + 8,
-      y: divB.getBoundingClientRect().top  + divB.getBoundingClientRect().height / 2
+    let lineStart = {//where the line starts
+      x: staticBox.getBoundingClientRect().left + staticBox.getBoundingClientRect().width / 2,
+      y: staticBox.getBoundingClientRect().top
     };
     // var dStrLeft =
     //     "M" +
@@ -33,33 +35,35 @@ window.addEventListener('load', function(){
     //arrowLeft.setAttribute("d", dStrLeft);
     let dStrRight =
         "M" +
-        (posnBRight.x      ) + "," + (posnBRight.y) + " " +
+        // c= cordinates
+        // c of  X            ||        c of Y
+        (lineStart.x      ) + "," + (lineStart.y) + " " +
         "C" +
-        (posnBRight.x + 100) + "," + (posnBRight.y) + " " +
-        (posnARight.x + 100) + "," + (posnARight.y) + " " +
-        (posnARight.x      ) + "," + (posnARight.y);
+        // c of X on the middle line  || c of Y on the middle line
+        (lineStart.x - 60) + "," + (lineStart.y) + " " +
+        (arrowSymbol.x + 50) + "," + (arrowSymbol.y) + " " +
+        (arrowSymbol.x  ) + "," + (arrowSymbol.y);
 
     arrowRight.setAttribute("d", dStrRight);
   };
+  drawConnector();
+  // $("#a, #b").draggable({
+  //   drag: function(event, ui) {
+  //     console.log(document.querySelector(".top__child--1").getBoundingClientRect().left);
+  //   }
+  // });
 
-  console.log(divA);
-  console.log(divB);
-  console.log(arrowLeft)
-  console.log(arrowRight);
-
-  $("#a, #b").draggable({
-    drag: function(event, ui) {
-      console.log(document.querySelector(".top__child--1").getBoundingClientRect().left);
-      drawConnector();
-    }
+  // when clicking the box draw again with the function and change the lement
+  $('.top__child').each(function(idx, elm){
+    console.log(elm)
+    $(elm).click(function(){
+      console.log(this)
+      drawConnector(this);
+    });
   });
+  // console.log(dynamicBox);
+  // console.log(divB);
+  // console.log(arrowLeft)
+  // console.log(arrowRight);
 
-  setTimeout(drawConnector, 250);
-  /* The setTimeout delay here is only required to prevent
-    * the initial appearance of the arrows from being
-    * incorrect due to the animated expansion of the
-    * Stack Overflow code snippet results after clicking
-    * "Run Code Snippet." If this was a simpler website,
-    * a simple command, i.e. `drawConnector();` would suffice.
-    */
 }, false)
