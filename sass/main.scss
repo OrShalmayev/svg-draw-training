@@ -1,0 +1,66 @@
+// /* ABSTRACTS
+// ================================================> */
+// @import "abstracts/variables";
+// @import "abstracts/fonts";
+// @import "abstracts/mixins";
+
+// /* BASE
+// ================================================> */
+// @import "base/base";
+// @import "base/typography";
+
+// /* COMPONENTS
+// ================================================> */
+// @import "components/bootstrap-partials";
+// @import "components/placeholders";
+// @import "components/boxes";
+// @import "components/buttons";
+// @import "components/forms";
+
+// /* LAYOUT
+// ================================================> */
+// @import "layout/footer";
+// @import "layout/header";
+
+// /* PAGES
+// ================================================> */
+// // @import "pages/home";
+html,
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+svg {
+  position: absolute;
+}
+
+.top, .bottom {
+  padding: 10px;
+  display: flex;
+  min-width: fit-content;
+  min-height: fit-content;
+  text-align: center;
+  color: white;
+}
+.top {
+  margin-bottom: 3rem;
+  & > *:not(:last-child) {
+    position: relative;
+    margin-right: 2rem;
+  }
+
+  &__child {
+    background-color: green;
+  }
+}
+
+.bottom {
+  background-color: blue;
+}
+
