@@ -24,7 +24,8 @@ svg {
   background-color: #f3f3f3; }
 
 .top {
-  margin-bottom: 3rem; }
+  margin-bottom: 3rem;
+  background-color: rgba(0, 0, 255, 0.13); }
   .top > *:not(:last-child) {
     margin-right: 2rem; }
   .top__child {
@@ -33,4 +34,4 @@ svg {
     background-color: green; }
 
 .bottom {
-  background-color: blue; }
+  background: red; }

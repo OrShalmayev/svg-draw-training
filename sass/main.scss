@@ -1,30 +1,3 @@
-// /* ABSTRACTS
-// ================================================> */
-// @import "abstracts/variables";
-// @import "abstracts/fonts";
-// @import "abstracts/mixins";
-
-// /* BASE
-// ================================================> */
-// @import "base/base";
-// @import "base/typography";
-
-// /* COMPONENTS
-// ================================================> */
-// @import "components/bootstrap-partials";
-// @import "components/placeholders";
-// @import "components/boxes";
-// @import "components/buttons";
-// @import "components/forms";
-
-// /* LAYOUT
-// ================================================> */
-// @import "layout/footer";
-// @import "layout/header";
-
-// /* PAGES
-// ================================================> */
-// // @import "pages/home";
 html,
 body {
   width: 100%;
@@ -36,6 +9,7 @@ body {
   align-items: center;
   flex-direction: column;
 }
+
 svg {
   position: absolute;
   path {
@@ -52,8 +26,11 @@ svg {
   color: white;
   background-color: #f3f3f3;
 }
+
 .top {
   margin-bottom: 3rem;
+  background-color: rgba(0, 0, 255, 0.13);
+
   & > *:not(:last-child) {
     margin-right: 2rem;
   }
@@ -66,6 +43,6 @@ svg {
 }
 
 .bottom {
-  background-color: blue;
+  background: red;
 }
 
