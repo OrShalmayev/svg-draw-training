@@ -46,3 +46,229 @@ svg {
   background: red;
 }
 
+
+
+.the-power {
+  text-align: center;
+  background-color: $bg-gray;
+  padding: 10rem 0;
+  position: relative;
+  z-index: 1;
+
+  &-content {
+    display: none;
+
+    &.active {
+      display: block;
+      animation: fadein 0.5s;
+    }
+  }
+
+  &__boxes {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    margin-top: 7rem;
+    margin-bottom: 15rem;
+
+    @include respond(xs) {
+      flex-direction: column;
+      margin-bottom: 0;
+    }
+  }
+
+  &__box {
+    border: 2px solid $color-2;
+    max-width: 16%;
+    width: 16%;
+    padding: 1rem;
+    position: relative;
+    background-color: $bg-white;
+    cursor: pointer;
+
+    @include respond(md) {
+      max-width: 17%;
+      width: 17%;
+    }
+
+    @include respond(xs) {
+      max-width: unset;
+      width: 100%;
+      margin-bottom: 4rem;
+    }
+
+    &--arrow {
+      position: relative;
+      left: 50%;
+      transform: translateX(-25%);
+      max-width: 20rem;
+      display: none;
+
+      &.active {
+        @include respond(xs) {
+          display: block;
+          margin-top: -4rem;
+        }
+      }
+    }
+
+    &--step {
+      position: absolute;
+      top: -2rem;
+      left: 0;
+      font-size: 8rem;
+      opacity: 0.05;
+      font-family: $font-3;
+
+      @include respond(xs) {
+        bottom: -2rem;
+        right: 0;
+        top: unset;
+        left: unset;
+      }
+    }
+
+    &--desc {
+      display: none;
+      border: 2px solid $color-2;
+      margin-bottom: 6rem;
+      padding: 1rem;
+      position: relative;
+      background-color: #fff;
+
+      @include squares(bottom, right, true, $color-3, $color-3);
+
+      &.active {
+        // animation: fadein 1s;
+
+        @include respond(xs) {
+          display: block;
+          padding: 2rem;
+          max-width: 95%;
+
+          &::after {
+            top: 20px;
+            left: 20px;
+          }
+
+          &::before {
+            top: 11px;
+            left: 11px;
+          }
+        }
+      }
+
+      & .the-power-p--1 {
+        display: block;
+      }
+    }
+
+    &.active {
+      border: 2px solid $color-3;
+
+      & .dots {
+        background-color: $color-3;
+      }
+    }
+
+    &-ah--2 {
+      text-decoration: underline;
+      text-decoration-color: $color-2;
+    }
+
+    &-p--1 {
+      font-weight: $fw-bold;
+    }
+  }
+
+  &__desc {
+    max-width: 60%;
+    margin: 0 auto;
+    border: 2px solid $color-2;
+    padding: 1rem;
+    position: relative;
+    background-color: $bg-white;
+    min-height: 17rem;
+    display: flex;
+    align-items: center;
+
+    @include squares(bottom, right, true, $color-3, $color-3);
+
+    &::after {
+      top: 20px;
+      left: 20px;
+    }
+
+    &::before {
+      top: 11px;
+      left: 11px;
+    }
+
+    @include respond(xs) {
+      display: none;
+    }
+  }
+}
+
+#svg {
+  position: absolute;
+  top: 3rem;
+  left: 0;
+  z-index: -1;
+
+  @include respond(laptops) {
+    top: 8rem;
+  }
+
+  @include respond(xl) {
+    top: 8rem;
+  }
+}
+
+#plus-wrapper {
+  position: absolute;
+}
+
+#plus {
+  position: absolute;
+  z-index: 2;
+  transition: all 0.2s ease-in-out;
+  top: 41rem;
+
+  @include respond(laptops) {
+    top: 40rem;
+  }
+
+  @include respond(xl) {
+    top: 38rem;
+  }
+
+  @include respond(lg) {
+    top: 40rem;
+  }
+
+  @include respond(md) {
+    top: 42rem;
+    max-width: 4.7rem;
+  }
+
+  @include respond(xs) {
+    display: none;
+  }
+}
+
+#arrow-bottom {
+  position: absolute;
+  left: 50%;
+  top: -4.5rem;
+  transform: translateX(-50%);
+  max-width: 4rem;
+}
+
+#svg path {
+  transition: all 0.2s ease-in-out;
+
+  @include respond(xs) {
+    display: none;
+  }
+}
