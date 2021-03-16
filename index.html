@@ -37,5 +37,67 @@
   <div id="b" class="bottom">
     <h2>staticBox</h2>
   </div>
+  
+  
+  
+  /*miami*/
+  <section class="the-power">
+  <div class="container--2">
+
+
+    <h2 class="the-power-ah--1">{!!$the_power['headline_1']!!}</h2>
+    <h3 class="the-power-ah--2">{!!$the_power['headline_2']!!}</h3>
+
+        <svg id="svg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" >
+        <g id="orange_path_section_6" >
+          <g id="Group_168" data-name="Group 168" >
+            <path id="Path_242" data-name="Path 242" d="M8.316-.84q-.252.084-.777-.357A7.138,7.138,0,0,0,6.8-1.764a4.138,4.138,0,0,0-.63-.441.625.625,0,0,1-.294-.441l.105-.378a1.253,1.253,0,0,1,.4-.63,7.858,7.858,0,0,1,1.533-.987q.945-.483,2.31-1.2T13.4-7.644A13.918,13.918,0,0,1,15.12-8.61a2.069,2.069,0,0,0,.756-.462,1,1,0,0,0,.084-.756,8.012,8.012,0,0,0-2.331-1.7,28.381,28.381,0,0,0-4.767-1.827,12.507,12.507,0,0,1-2.31-.945,2.42,2.42,0,0,1-.987-.9,1.642,1.642,0,0,1-.147-1.008,1.659,1.659,0,0,1,1.05-.609,7.22,7.22,0,0,1,1.911-.231,4.484,4.484,0,0,1,1.953.42q1.3.336,2.268.609a6.455,6.455,0,0,1,2.142,1.2q1.428.8,2.289,1.344A6.106,6.106,0,0,1,18.69-11.8l1.386,1.68L20.538-7.9a1.677,1.677,0,0,0-.63.21q-.294.168-.378.21a8.975,8.975,0,0,0-1.029.609q-.525.357-1.407.924T14.616-4.452Q12.684-3.444,11.256-2.6a10.711,10.711,0,0,0-1.848,1.26,1.281,1.281,0,0,1-.567.4A1.727,1.727,0,0,1,8.316-.84Z"  fill="#fff"/>
+          </g>
+          <path id="line" data-name="Path 129"   fill="none" stroke="#f17324" stroke-width="2"/>
+        </g>
+      </svg>
+    <div class="the-power__boxes">
+    {{-- plus sign --}}
+    <svg id="plus" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35">
+      <defs>
+      <style>.a{fill:#f17324;}.b{fill:none;stroke:#fff;stroke-width:2px;}</style>
+      </defs><g transform="translate(-539 -6176)"><rect class="a" width="35" height="35" transform="translate(539 6176)"/>
+      <line class="b" y2="16" transform="translate(556.5 6185.5)"/><line class="b" y2="16" transform="translate(564.5 6193.5) rotate(90)"/>
+      </g>
+    </svg>
+    {{-- end plus sign --}}
+      @foreach($the_power['boxes'] as $key => $box)
+      <div class="the-power__box {{$key===0 ? 'active' : ''}} the-power__box--{{$key}}" data-panel="panel-{{$key+1}}" data-mob="mob-{{$key+1}}" data-arrow="arrow-{{$key+1}}" id="test--{{$key+1}}">
+        <h3 class="the-power__box-ah--2">{!!$box['box_headline']!!}</h3>
+        <p class="the-power__box-p--1">{!!$box['box_text']!!}</p>
+        @component('components.lps.ui-ux.ui-ux-dots-border')@endcomponent
+      </div>
+
+      <img class="the-power__box--arrow {{$key===0 ? 'active' : ''}}" id="arrow-{{$key+1}}" src="{!!$the_power['arrow_mob']!!}" alt="arrow line">
+      <div class="the-power__box--desc {{$key===0 ? 'active' : ''}}" id="mob-{{$key+1}}">
+          <h1 class="the-power__box--step">{!!$box['step_text']!!}</h1>
+          <p class="the-power-p--1">
+            {!!$box['paragraph']!!}
+          </p>
+      </div>
+      @endforeach
+
+
+    </div>
+
+    <div class="the-power__desc">
+     <svg id="arrow-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 37"><defs><style>.cls-1{fill:#f17324;}.cls-2{isolation:isolate;}.cls-3{fill:#fff;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M17,0h0A17,17,0,0,1,34,17V37H0V17A17,17,0,0,1,17,0Z"/><g class="cls-2"><path class="cls-3" d="M8.2,16.5c.3-.4.5-.6.5-.7a2.19,2.19,0,0,0,.3-.5q.15-.3.3-.3a.37.37,0,0,1,.3-.1,1.34,1.34,0,0,1,.5.1,1,1,0,0,1,.5.4,18.57,18.57,0,0,1,1.6,2.7c1,1.9,1.8,3.3,2.4,4.3.3.5.6,1,.9,1.6a3.78,3.78,0,0,0,.5.8.76.76,0,0,0,.5.2h.3a6.73,6.73,0,0,0,1.7-2.4,25.88,25.88,0,0,0,1.8-4.7,8.71,8.71,0,0,1,1.2-2.7,1.7,1.7,0,0,1,1.3-.8h.3a2.14,2.14,0,0,1,.6,1,4.67,4.67,0,0,1,.3,1.7,4.81,4.81,0,0,1-.4,2.2c-.1.3-.2.7-.4,1.3a5.94,5.94,0,0,1-.6,1.6,4.19,4.19,0,0,1-.9,1.4,2.93,2.93,0,0,0-.4.8c-.5.8-.9,1.5-1.2,1.9a6,6,0,0,1-1.4,1.3L17,29l-2.2.5c-.1-.3-.1-.5-.3-.7a1.24,1.24,0,0,0-.2-.3,7.6,7.6,0,0,0-.8-1.3c-.8-1.2-1.5-2.4-2.2-3.6a27.53,27.53,0,0,0-3.1-5.2,1,1,0,0,1-.4-.5,1.27,1.27,0,0,1-.1-.6C7.8,17.2,7.9,16.9,8.2,16.5Z"/></g></g></g></svg>
+     @foreach($the_power['boxes'] as $key => $box)
+     <div class="the-power-content {{$key===0 ? 'active' : ''}}" id="panel-{{$key+1}}">
+        <h1 class="the-power__box--step">{!!$box['step_text']!!}</h1>
+        <p class="the-power-p--1">
+          {!!$box['paragraph']!!}
+        </p>
+      </div>
+     @endforeach
+    </div>
+  </div>
+</section>
+@endif
 </body>
 </html>
